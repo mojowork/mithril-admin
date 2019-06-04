@@ -1,9 +1,12 @@
- // Pages here
+ // Pages
+import Layout from '../views/layout/layout'
 import App from '../views/app'
 
- // Routes here
+ // Routes
 const Routes = {
-  '/index': App
+  '/index': {
+    render: () => m(Layout, m(App)),
+  }
 };
 
 const DefaultRoute = '/index';

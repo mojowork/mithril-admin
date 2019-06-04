@@ -1,9 +1,34 @@
 
-let App = {
+const App = {
 	view: () => (
 	<main>
 			<img src={require('../assets/logo.png')}/>
-			<h1>Hello Mithril</h1>
+			<table className="table table-striped table-hover">
+				<thead>
+					<tr>
+						<th>name</th>
+						<th>genre</th>
+						<th>release date</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr className="active">
+						<td>The Shawshank Redemption</td>
+						<td>Crime, Drama</td>
+						<td>14 October 1994</td>
+					</tr>
+					<tr >
+						<td>The Shawshank Redemption</td>
+						<td>Crime, Drama</td>
+						<td>14 October 1994</td>
+					</tr>
+					<tr >
+						<td>The Shawshank Redemption</td>
+						<td>Crime, Drama</td>
+						<td>14 October 1994</td>
+					</tr>
+				</tbody>
+			</table>
 	</main>
 	)
 }

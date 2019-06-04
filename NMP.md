@@ -29,6 +29,11 @@ npm install -D style-loader css-loader postcss-loader autoprefixer  cssnano less
         },
         {
             loader: 'css-loader'
+            // Not Use modules
+            // options: { 
+            //     modules: true,
+            //     localIdentName: '[name]_[local]_[hash:7]'
+            // },
         },
         {
             loader: 'postcss-loader',
