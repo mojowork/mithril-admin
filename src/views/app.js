@@ -1,7 +1,7 @@
 
 const App = {
 	view: () => (
-	<main>
+	<main style={{marginTop:'60px'}}>
 			<img src={require('../assets/logo.png')}/>
 			<table className="table table-striped table-hover">
 				<thead>

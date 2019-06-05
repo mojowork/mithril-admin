@@ -1,10 +1,7 @@
 const webpack = require('webpack');
 const path = require('path'); 
-const glob = require('glob');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const PurifyCSSPlugin = require('purifycss-webpack');
 
 let config = { // config object
     mode: 'development',
@@ -13,7 +10,7 @@ let config = { // config object
     },
     output: { // output
         path: path.resolve(__dirname, 'dist'), // ouput path
-        filename: '[name]-[hash:7].js',
+        filename: '[name].js',
     },
     module: {
         rules: [
@@ -54,8 +51,7 @@ let config = { // config object
                         options: {
                             ident: 'postcss',
                             plugins: (loader) => [
-                                require('autoprefixer')(),
-                                //   require('cssnano')()
+                                require('autoprefixer')()
                             ]
                         }
                     },
@@ -92,6 +88,7 @@ let config = { // config object
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
         hot: true,
+        open: true
     },
     devtool: 'eval-source-map', // enable devtool for better debugging experience
 }
