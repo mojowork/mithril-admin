@@ -1,32 +1,71 @@
-import './layout.less'
+import "./layout.less";
+import { menuList } from "../../config/map";
 
 const Layout = {
-  view: (vnode) => (
-    <div className="ma-layout-container">
-      <header className="ma-layout-header">
-        <section className="ma-layout-brand">
-          ADMIN
-        </section>
-        <section className="ma-layout-tools">
-          <span className="ma-layout-tools-item"><i class="icon icon-2x icon-search"></i></span>
-          <span className="ma-layout-tools-item"><i class="icon icon-2x icon-mail"></i></span>
-          <span className="ma-layout-tools-item">
-            <figure class="avatar avatar-lg">
-              <img src={require('../../assets/avatar-1.png')} alt="..."/>
-            </figure>
-          </span>
-        </section>
-      </header>
-      <section className="ma-layout-body">
-        <aside className="ma-layout-aside">
+  view: vnode =>
+    m(
+      "div",
+      { class: "layout-container" },
+      m(
+        "header",
+        { class: "layout-header" },
+        m("section", { class: "layout-brand etched-text" }, "ADMIN"),
+        m(
+          "section",
+          { class: "layout-tools" },
+          m(
+            "span",
+            { class: "layout-tools-item" },
+            m("i", { class: "icon icon-2x icon-search" })
+          ),
+          m(
+            "span",
+            { class: "layout-tools-item badge", "data-badge": 1 },
+            m("i", { class: "icon icon-2x icon-mail" })
+          ),
+          m(
+            "span",
+            { class: "layout-tools-item" },
+            m(
+              "figure",
+              { class: "avatar avatar-lg" },
+              m("img", { src: require("../../assets/avatar-1.png") })
+            )
+          )
+        )
+      ),
+      m(
+        "section",
+        { class: "layout-body" },
+        m(
+          "aside",
+          { class: "layout-aside" },
+          m(
+            "ul",
+            { class: "menu" },
+            menuList.map(item =>
+              m(
+                "li",
+                {
+                  class: "menu-item",
+                  style:{textAlign: 'left'}
+                },
+                m(
+                  "a",
+                  { href: "#" },
+                  m("i", {
+                    class: `icon ${item.icon}`,
+                    style: { margin: '0 10px'}
+                  }),
+                  item.name
+                )
+              )
+            )
+          )
+        ),
+        m("main", { class: "layout-main" }, vnode.children)
+      )
+    )
+};
 
-        </aside>
-        <main className="ma-layout-main">
-          {vnode.children}
-        </main>
-      </section>
-    </div>
-  )
-}
-
-export default Layout
+export default Layout;

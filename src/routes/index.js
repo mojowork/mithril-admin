@@ -1,5 +1,6 @@
- // Pages
+ 
 import Layout from '../views/layout/layout'
+// Pages
 import App from '../views/app'
 
  // Routes
